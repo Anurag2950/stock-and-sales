@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>stock detail</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Stock & sales detail</h1>
+        <div>
+        <form method="post" name="google-sheet">
+            <table>
+                <tr>
+                    <td>
+                        <h3>Stock part</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        <input type="datetime-local" name="Date">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Your Name
+                    </td>
+                    <td>
+                        <input type="text" name="Your Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Product name
+                    </td>
+                    <td>
+                        <select name="Product name" >
+                            <option></option>
+                            <option>plastic empty tube</option>
+                            <option>filled plastic tube</option>
+                            <option>plastic empty bottle</option>
+                            <option>printed empty bottle</option>
+                            <option>Extension</option>
+                            <option>pin</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Machine number
+                    </td>
+                    <td>
+                        <select name="Machine number"> 
+                            <option></option>
+                            <option>vertical machine no.1</option>
+                            <option>vertical machine no.2</option>
+                            <option> machine no.1</option>
+                            <option> machine no.2</option>
+                            <option> machine no.3</option>
+                            <option> machine no.4</option>
+                            <option> machine no.5</option>
+                            <option> machine no.6</option>
+                            <option> machine no.7</option>
+                            <option> machine no.8</option>
+                            <option> machine no.9</option>
+                            <option> machine no.10</option>
+                            <option>bottle machine no.1</option>
+                            <option>bottle machine no.2</option>
+                            <option>printing machine no.1</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bottle or tube name
+                    </td>
+                    <td>
+                        <input type="text" name="Bottle or tube name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Per pcs weight
+                    </td>
+                    <td>
+                        <input type="phone" placeholder="per pcs weight" name="Per pcs weight">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Quantity
+                    </td>
+                    <td>
+                        <input type="phone" placeholder="in nos" name="Quantity">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Weight
+                    </td>
+                    <td>
+                        <input type="number" placeholder="in kgs" name="Weight">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <h3>Sales part</h3>
+                    </td>
+                </tr>
+                <tr>    
+                    <td>
+                        Dealer Name
+                    </td>
+                    <td>
+                        <input type="text" name="Dealer Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sale Product name
+                    </td>
+                    <td>
+                        <select name="Sale Product name">
+                            <option></option>
+                            <option>plastic empty tube</option>
+                            <option>filled plastic tube</option>
+                            <option>plastic empty bottle</option>
+                            <option>printed empty bottle</option>
+                            <option>Extension</option>
+                            <option>pin</option>
+                            <option>filled non-printed bottle </option>
+                            <option>filled printed bottle </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sale Bottle or tube name
+                    </td>
+                    <td>
+                        <input type="text" name="Sale Bottle or tube name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         Sale Per pcs weight
+                    </td>
+                    <td>
+                        <input type="phone" placeholder="per pcs weight" name="Sale Per pcs weight">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sale Quantity
+                    </td>
+                    <td>
+                        <input type="number" name="Sale Quantity">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        
+            <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwsgopQkJ7hTXdXx_262XOfmVddePEjl56Nljhd9SgFXqgIYejok5iPLQuHRm9KVo0_/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'post', body: new FormData(form)})
+                .then(response => alert("Your work has been submited"))
+                .catch(error => console.error('Error!', error.message))
+            })
+           </script>
+         
+    </body>
+</html>
